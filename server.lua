@@ -21,6 +21,13 @@ AddEventHandler('playerDropped', function ()
     local xPlayer = ESX.GetPlayerFromId(source)
     for k, v in pairs(playersData) do 
         if v.name == xPlayer.getName() then 
+            MySQL.update('UPDATE leaderboard SET kills = @kills, deaths = @deaths, kd = @kd WHERE identifier = @identifier',
+            { 
+                ['@identifier'] = v.identifier,
+                ['@kills'] = v.kills, 
+                ['@deaths'] = v.deaths,
+                ['@kd'] = string.format("%.2f", v.kd),
+            })
             table.remove( playersData, k )
         end
     end 
