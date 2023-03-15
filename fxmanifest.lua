@@ -2,7 +2,7 @@ fx_version'cerulean'
 game'gta5'
 
 author'At0m_.'
-description'Pause Menu'
+description'Leaderboard'
 version'1.0.0'
 
 lua54        'yes'
